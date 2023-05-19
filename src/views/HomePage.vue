@@ -100,11 +100,35 @@
     </section>
 
     <section class="p-6">
-      <h2 class="text-4xl font-bad-script font-bold mb-8">
-        The Coffee of Moonlight
-      </h2>
-      <!-- Include your featured products here -->
-    </section>
+  <h2 class="flex justify-center text-4xl font-bad-script font-bold mb-8">
+    The Coffee of Moonlight
+  </h2>
+  <p class="text-lg mb-8">
+    At Moonlight Coffee, we are proud to present our selection of premier coffees sourced from the exquisite landscapes of Colombia and Ethiopia. Our coffee beans are carefully selected and prepared to offer a variety of roasts - Light, Medium, Dark, and Espresso. Each roast type offers a distinct flavor profile, from the bright and fruity notes of our Light roast to the rich and bold characteristics of our Dark and Espresso roasts. Experience the unique taste profiles and enjoy the magic of coffee, under the moonlight.
+  </p>
+  <div class="grid grid-cols-4 gap-4">
+    <div class="coffee-item">
+      <img src="@/assets/roast.jpg" alt="Light Roast" />
+      <h3 class="text-2xl mb-2">Light Roast</h3>
+      <button class="buy-button">Buy Now</button>
+    </div>
+    <div class="coffee-item">
+      <img src="@/assets/roast.jpg" alt="Medium Roast" />
+      <h3 class="text-2xl mb-2">Medium Roast</h3>
+      <button class="buy-button">Buy Now</button>
+    </div>
+    <div class="coffee-item">
+      <img src="@/assets/roast.jpg" alt="Dark Roast" />
+      <h3 class="text-2xl mb-2">Dark Roast</h3>
+      <button class="buy-button">Buy Now</button>
+    </div>
+    <div class="coffee-item">
+      <img src="@/assets/roast.jpg" alt="Espresso Roast" />
+      <h3 class="text-2xl mb-2">Espresso Roast</h3>
+      <button class="buy-button">Buy Now</button>
+    </div>
+  </div>
+</section>
 
     <footer class="bg-amber-800 text-white p-4">
       <p class="text-center">Made with ❤️ by Moonlight Coffee</p>
