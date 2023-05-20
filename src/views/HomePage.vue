@@ -1,43 +1,53 @@
 <template>
   <div class="flex flex-col">
-    <main
-      class="h-[60vh] bg-gray-100 flex items-center justify-start relative"
-      :style="{
-        backgroundImage: `url(${slides[currentSlide].image})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }"
-    >
-      <div class="text-left bg-black bg-opacity-0 text-white p-4 rounded ml-10">
-        <h2 class="text-6xl font-bad-script mb-4 font-bold text-shadow">
-          {{ slides[currentSlide].title }}
-        </h2>
-        <p class="text-2xl mb-4 text-shadow">
-          {{ slides[currentSlide].subtitle }}
-        </p>
-        <button
-          class="bg-amber-600 hover:bg-amber-800 text-white font-bold py-2 px-4 rounded"
+    <main class="h-[60vh] bg-gray-100 flex items-center justify-start relative">
+      <div
+        v-if="slides[currentSlide].image"
+        :style="{
+          backgroundImage: `url(${slides[currentSlide].image})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }"
+        class="w-full h-full object-cover"
+      ></div>
+      <video v-else autoplay muted loop class="w-full h-full object-cover">
+        <source :src="slides[currentSlide].video" type="video/mp4" />
+      </video>
+
+      <div class="absolute inset-0 flex items-center">
+        <div
+          class="text-left bg-black bg-opacity-0 text-white p-4 rounded ml-10"
         >
-          Discover our shop
-        </button>
-        <div class="absolute top-1/2 left-4">
+          <h2 class="text-6xl font-bad-script mb-4 font-bold text-shadow">
+            {{ slides[currentSlide].title }}
+          </h2>
+          <p class="text-2xl mb-4 text-shadow">
+            {{ slides[currentSlide].subtitle }}
+          </p>
           <button
-            class="bg-black bg-opacity-10 text-white py-2 px-3 rounded arrow-button"
-            @click="previousSlide"
+            class="bg-amber-600 hover:bg-amber-800 text-white font-bold py-2 px-4 rounded"
           >
-            &#8249;
-          </button>
-        </div>
-        <div class="absolute top-1/2 right-4">
-          <button
-            class="bg-white bg-opacity-10 text-white py-2 px-3 rounded arrow-button"
-            @click="nextSlide"
-          >
-            &#8250;
+            Discover our shop
           </button>
         </div>
       </div>
-      <!-- your arrows -->
+
+      <div class="absolute top-1/2 left-4">
+        <button
+          class="bg-black bg-opacity-10 text-white py-2 px-3 rounded arrow-button"
+          @click="previousSlide"
+        >
+          &#8249;
+        </button>
+      </div>
+      <div class="absolute top-1/2 right-4">
+        <button
+          class="bg-white bg-opacity-10 text-white py-2 px-3 rounded arrow-button"
+          @click="nextSlide"
+        >
+          &#8250;
+        </button>
+      </div>
     </main>
 
     <section class="p-6 ml-10 mr-10">
@@ -53,13 +63,13 @@
             What's up with the Moonlight?
           </h2>
           <p class="text-lg">
-            Moonlight Coffee stands as an oasis of tranquility in the heart of
-            the night. An uncommon delight, a beacon for the nocturnal and the
-            sleepless, where the enchanting aroma of high quality roasted coffee
-            beans mingles with the crisp, cool night air. As the sun
-            relinquishes its hold, the moon takes reign and the magic begins.
-            Here, under the silvery shimmer of starlight, coffee is not simply a
-            beverage, but a companion to the whispers of the night.
+            We stand as an oasis of tranquility in the heart of the night. An
+            uncommon delight, a beacon for the nocturnal and the sleepless,
+            where the enchanting aroma of high quality roasted coffee beans
+            mingles with the crisp, cool night air. Moonlight Coffee believes
+            that any hour is the hour of good coffee. Here, under the silvery
+            shimmer of starlight, coffee is not simply a beverage, but a
+            companion to the whispers of the night.
           </p>
           <button
             class="mt-8 border-2 border-black bg-transparent text-lg text-black hover:bg-black hover:text-white py-2 px-4 rounded font-bad-script font-bold"
@@ -70,11 +80,24 @@
       </div>
     </section>
 
+    <section class="p-8 bg-black opacity-70 flex flex-col items-center">
+      <p class="text-2xl text-white text-center italic max-w-lg mx-auto">
+        Moonlight Coffee specializes in producing the freshest coffee from small
+        and dedicated farms providing the maximum usage of coffee equipment with
+        the highest standard for quality in the business for an A1 experience.
+      </p>
+      <img
+        class="p-4 w-1/6 h-auto"
+        src="@/assets/sky-vector.png"
+        alt="Picture showcasing the moonlight"
+      />
+    </section>
+
     <section class="p-6 bg-black opacity-90">
       <h2
         class="text-4xl text-white font-bad-script font-bold mb-8 flex justify-center"
       >
-        Our location
+        The Location
       </h2>
       <!-- Include your featured products here -->
       <p class="mb-4 text-lg text-white flex justify-center">
@@ -100,35 +123,38 @@
     </section>
 
     <section class="p-6">
-  <h2 class="flex justify-center text-4xl font-bad-script font-bold mb-8">
-    The Coffee of Moonlight
-  </h2>
-  <p class="text-lg mb-8">
-    At Moonlight Coffee, we are proud to present our selection of premier coffees sourced from the exquisite landscapes of Colombia and Ethiopia. Our coffee beans are carefully selected and prepared to offer a variety of roasts - Light, Medium, Dark, and Espresso. Each roast type offers a distinct flavor profile, from the bright and fruity notes of our Light roast to the rich and bold characteristics of our Dark and Espresso roasts. Experience the unique taste profiles and enjoy the magic of coffee, under the moonlight.
-  </p>
-  <div class="grid grid-cols-4 gap-4">
-    <div class="coffee-item">
-      <img src="@/assets/roast.jpg" alt="Light Roast" />
-      <h3 class="text-2xl mb-2">Light Roast</h3>
-      <button class="buy-button">Buy Now</button>
-    </div>
-    <div class="coffee-item">
-      <img src="@/assets/roast.jpg" alt="Medium Roast" />
-      <h3 class="text-2xl mb-2">Medium Roast</h3>
-      <button class="buy-button">Buy Now</button>
-    </div>
-    <div class="coffee-item">
-      <img src="@/assets/roast.jpg" alt="Dark Roast" />
-      <h3 class="text-2xl mb-2">Dark Roast</h3>
-      <button class="buy-button">Buy Now</button>
-    </div>
-    <div class="coffee-item">
-      <img src="@/assets/roast.jpg" alt="Espresso Roast" />
-      <h3 class="text-2xl mb-2">Espresso Roast</h3>
-      <button class="buy-button">Buy Now</button>
-    </div>
-  </div>
-</section>
+      <h2 class="flex justify-center text-4xl font-bad-script font-bold mb-8">
+        The Coffee of Moonlight
+      </h2>
+      <p class="text-lg mb-8 flex text-center">
+        At Moonlight Coffee, we are proud to present our selection of premier
+        coffees sourced from where the Moon meets the Sun at the exquisite
+        landscapes of Colombia and Ethiopia. Our coffee beans are carefully
+        selected and prepared to offer a variety of roasts - Full Moon, First
+        Quarter, Dark Side, and our house blend Moon Dust. Each phase of roast
+        type offers a distinct flavor profile, from the bright and fruity notes
+        of our Full Moon to the rich and mysterious characteristics of our Dark
+        Side with sofisticated flavors. What is your favorite phase?
+      </p>
+      <div class="container mx-auto grid grid-cols-4 gap-2">
+        <div class="coffee-item">
+          <img src="@/assets/fullmoon-roast.png" alt="Light Roast" />
+          <h3 class="text-2xl mb-2 font-bold">Full Moon</h3>
+        </div>
+        <div class="coffee-item">
+          <img src="@/assets/firstquarter-roast.png" alt="First Quarter" />
+          <h3 class="text-2xl mb-2 font-bold">First Quarter</h3>
+        </div>
+        <div class="coffee-item">
+          <img src="@/assets/darkside-roast.png" alt="Darkside of the Moon" />
+          <h3 class="text-2xl mb-2 font-bold">Dark Side</h3>
+        </div>
+        <div class="coffee-item">
+          <img src="@/assets/moondust-roast.png" alt="Moondust Blend" />
+          <h3 class="text-2xl mb-2 font-bold">Moon Dust Blend</h3>
+        </div>
+      </div>
+    </section>
 
     <footer class="bg-amber-800 text-white p-4">
       <p class="text-center">Made with ❤️ by Moonlight Coffee</p>
@@ -141,9 +167,10 @@
 </template>
 
 <script>
-import image1 from "@/assets/image1.jpg";
-import image2 from "@/assets/image2.jpg";
-import image3 from "@/assets/image3.jpg";
+// import image1 from "@/assets/image1.jpg";
+// import image2 from "@/assets/image2.jpg";
+// import image3 from "@/assets/image3.jpg";
+import video1 from "@/assets/video1.mp4";
 
 export default {
   name: "HomePage",
@@ -151,17 +178,22 @@ export default {
     return {
       slides: [
         {
-          image: image1,
+          video: video1,
+          title: "CLASS",
+          subtitle: "The unique and right attitude for Espresso.",
+        },
+        {
+          image: require("@/assets/image1.jpg") /* Change this */,
           title: "EXPERIENCE",
           subtitle: "The magic of Espresso after hours.",
         },
         {
-          image: image2,
+          image: require("@/assets/image2.jpg") /* Change this */,
           title: "TASTE",
-          subtitle: "The delighftul signature drinks and cocktails.",
+          subtitle: "The delightful signature drinks and cocktails.",
         },
         {
-          image: image3,
+          image: require("@/assets/image3.jpg") /* Change this */,
           title: "DISCOVER",
           subtitle: "A shop with personality and charm.",
         },
@@ -172,7 +204,7 @@ export default {
   mounted() {
     setInterval(() => {
       this.nextSlide();
-    }, 11000); // Change slide every 11 seconds
+    }, 14000); // Change slide every 14 seconds
   },
   methods: {
     nextSlide() {
@@ -186,6 +218,13 @@ export default {
 };
 </script>
 <style>
+.coffee-item img {
+  width: 100%;
+  height: auto;
+  max-width: 200px;
+  object-fit: cover;
+}
+
 .text-shadow {
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
 }
