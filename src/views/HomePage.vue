@@ -1,18 +1,28 @@
 <template>
   <div class="flex flex-col">
-    <main class="h-[60vh] bg-gray-100 flex items-center justify-start relative">
-      <div
-        v-if="slides[currentSlide].image"
-        :style="{
-          backgroundImage: `url(${slides[currentSlide].image})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }"
-        class="w-full h-full object-cover"
-      ></div>
-      <video v-else autoplay muted loop class="w-full h-full object-cover">
-        <source :src="slides[currentSlide].video" type="video/mp4" />
-      </video>
+    <main class="h-[60vh] bg-black flex items-center justify-start relative">
+      <transition name="fade" mode="out-in">
+        <div
+          v-if="slides[currentSlide].image"
+          :style="{
+            backgroundImage: `url(${slides[currentSlide].image})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }"
+          class="w-full h-full object-cover"
+          :key="slides[currentSlide].image"
+        ></div>
+        <video
+          v-else
+          autoplay
+          muted
+          loop
+          class="w-full h-full object-cover"
+          :key="slides[currentSlide].video"
+        >
+          <source :src="slides[currentSlide].video" type="video/mp4" />
+        </video>
+      </transition>
 
       <div class="absolute inset-0 flex items-center">
         <div
@@ -156,6 +166,136 @@
       </div>
     </section>
 
+    <section id="menu-section" class="p-6 bg-gray-500">
+      <div class="max-w-md mx-auto">
+        <h2
+          class="text-4xl text-white font-bold mb-8 flex justify-center font-bad-script"
+        >
+          The Menu
+        </h2>
+        <div class="mb-8">
+          <h3 class="text-2xl text-white font-bold mb-4">Hot Coffees</h3>
+          <ul class="menu-items">
+            <li class="menu-item flex justify-between items-center mb-2">
+              <span class="item-name text-white">Doppio Espresso</span>
+              <span class="item-price text-yellow-400">$2.75</span>
+            </li>
+            <li class="menu-item flex justify-between items-center mb-2">
+              <span class="item-name text-white">Americano</span>
+              <span class="item-price text-yellow-400">$2.75</span>
+            </li>
+            <li class="menu-item flex justify-between items-center mb-2">
+              <span class="item-name text-white">Cappuccino</span>
+              <span class="item-price text-yellow-400">$3.50</span>
+            </li>
+            <li class="menu-item flex justify-between items-center mb-2">
+              <span class="item-name text-white">Cafe Latte</span>
+              <span class="item-price text-yellow-400">$4.00</span>
+            </li>
+            <li class="menu-item flex justify-between items-center">
+              <span class="item-name text-white">Espresso Macchiato</span>
+              <span class="item-price text-yellow-400">$3.00</span>
+            </li>
+          </ul>
+        </div>
+        <div class="mb-8">
+          <h3 class="text-2xl text-white font-bold mb-4">Iced Coffees</h3>
+          <ul class="menu-items">
+            <li class="menu-item flex justify-between items-center mb-2">
+              <span class="item-name text-white">Iced Latte</span>
+              <span class="item-price text-yellow-400">$4.50</span>
+            </li>
+            <li class="menu-item flex justify-between items-center mb-2">
+              <span class="item-name text-white">Iced Americano</span>
+              <span class="item-price text-yellow-400">$3.50</span>
+            </li>
+            <li class="menu-item flex justify-between items-center mb-2">
+              <span class="item-name text-white">Cold Brew</span>
+              <span class="item-price text-yellow-400">$4.50</span>
+            </li>
+            <li class="menu-item flex justify-between items-center">
+              <span class="item-name text-white">Mocha Frappe</span>
+              <span class="item-price text-yellow-400">$5.00</span>
+            </li>
+          </ul>
+        </div>
+        <div class="mb-8">
+          <h3 class="text-2xl text-white font-bold mb-4">Pastries</h3>
+          <ul class="menu-items">
+            <li class="menu-item flex justify-between items-center mb-2">
+              <span class="item-name text-white">Media Luna</span>
+              <span class="item-price text-yellow-400">$3.50</span>
+            </li>
+            <li class="menu-item flex justify-between items-center mb-2">
+              <span class="item-name text-white">Muffin</span>
+              <span class="item-price text-yellow-400">$3.50</span>
+            </li>
+            <li class="menu-item flex justify-between items-center mb-2">
+              <span class="item-name text-white">Scone</span>
+              <span class="item-price text-yellow-400">$3.50</span>
+            </li>
+            <li class="menu-item flex justify-between items-center">
+              <span class="item-name text-white">Cinnamon Roll</span>
+              <span class="item-price text-yellow-400">$4.00</span>
+            </li>
+          </ul>
+        </div>
+        <div class="mb-8">
+          <h3 class="text-2xl text-white font-bold mb-4">
+            Signature Cocktails
+          </h3>
+          <ul class="menu-items">
+            <li class="menu-item flex justify-between items-center mb-2">
+              <span class="item-name text-white">Espresso Martini</span>
+              <span class="item-price text-yellow-400">$8.00</span>
+            </li>
+            <li class="menu-item flex justify-between items-center mb-2">
+              <span class="item-name text-white">Orlando Sour</span>
+              <span class="item-price text-yellow-400">$9.00</span>
+            </li>
+            <li class="menu-item flex justify-between items-center">
+              <span class="item-name text-white">Tequila Moonrise</span>
+              <span class="item-price text-yellow-400">$8.50</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="flex justify-center pt-4">
+        <button
+          class="mb-4 border-2 border-white bg-transparent text-lg text-white hover:bg-white hover:text-black py-2 px-4 rounded font-bad-script font-bold"
+        >
+          Dive into the menu
+        </button>
+      </div>
+    </section>
+    <section class="p-6 bg-gray-100">
+      <div class="max-w-md mx-auto">
+        <h2
+          class="text-4xl text-black font-bold mb-6 flex justify-center font-bad-script"
+        >
+          What They Say
+        </h2>
+
+        <transition name="slide-fade" mode="out-in">
+          <div
+            v-if="currentReview"
+            :key="currentReviewIndex"
+            class="review-content tracking-wide"
+          >
+            <p class="text-black text-lg mb-4 font-poppins">
+              {{ currentReview.content }}
+            </p>
+            <p class="text-black font-poppins">— {{ currentReview.author }}</p>
+          </div>
+        </transition>
+
+        <div class="controls">
+          <button class="control-arrow" @click="previousReview">&#8249;</button>
+          <button class="control-arrow" @click="nextReview">&#8250;</button>
+        </div>
+      </div>
+    </section>
+
     <footer class="bg-amber-800 text-white p-4">
       <p class="text-center">Made with ❤️ by Moonlight Coffee</p>
       <p class="text-center">
@@ -167,9 +307,6 @@
 </template>
 
 <script>
-// import image1 from "@/assets/image1.jpg";
-// import image2 from "@/assets/image2.jpg";
-// import image3 from "@/assets/image3.jpg";
 import video1 from "@/assets/video1.mp4";
 
 export default {
@@ -183,28 +320,58 @@ export default {
           subtitle: "The unique and right attitude for Espresso.",
         },
         {
-          image: require("@/assets/image1.jpg") /* Change this */,
+          image: require("@/assets/image1.jpg"),
           title: "EXPERIENCE",
           subtitle: "The magic of Espresso after hours.",
         },
         {
-          image: require("@/assets/image2.jpg") /* Change this */,
+          image: require("@/assets/image2.jpg"),
           title: "TASTE",
           subtitle: "The delightful signature drinks and cocktails.",
         },
         {
-          image: require("@/assets/image3.jpg") /* Change this */,
+          image: require("@/assets/image3.jpg"),
           title: "DISCOVER",
           subtitle: "A shop with personality and charm.",
         },
       ],
+      reviews: [
+        {
+          content:
+            "Amazing coffee and cozy atmosphere. I always come here for my morning fix!",
+          author: "J S",
+        },
+        {
+          content:
+            "The best cappuccino I've ever had. The baristas here are true coffee artisans.",
+          author: "E J",
+        },
+        {
+          content:
+            "Moonlight Coffee never disappoints. Their pastries are divine, and the staff is friendly.",
+          author: "M D",
+        },
+        {
+          content:
+            "The espresso martinis are simply heavenly. A must-try for coffee and cocktail lovers!",
+          author: "S A",
+        },
+      ],
       currentSlide: 0,
+      currentReviewIndex: 0, // For reviews
     };
   },
   mounted() {
     setInterval(() => {
       this.nextSlide();
     }, 14000); // Change slide every 14 seconds
+  },
+  computed: {
+    currentReview() {
+      return this.reviews.length > this.currentReviewIndex
+        ? this.reviews[this.currentReviewIndex]
+        : null;
+    },
   },
   methods: {
     nextSlide() {
@@ -214,10 +381,81 @@ export default {
       this.currentSlide =
         (this.currentSlide - 1 + this.slides.length) % this.slides.length;
     },
+    nextReview() {
+      this.currentReviewIndex =
+        (this.currentReviewIndex + 1) % this.reviews.length;
+    },
+    previousReview() {
+      this.currentReviewIndex =
+        (this.currentReviewIndex - 1 + this.reviews.length) %
+        this.reviews.length;
+    },
   },
 };
 </script>
 <style>
+#menu-section {
+  background-image: url("@/assets/chalkboard-texture.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+}
+
+.slide-fade-enter-active {
+  transition: all 0.4s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateX(25px);
+  opacity: 0;
+}
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.control-arrow {
+  background-color: transparent;
+  border: none;
+  color: rgb(26, 26, 26);
+  font-size: 2rem;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.control-arrow:hover {
+  opacity: 0.8;
+}
+@keyframes scaleInOut {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(0.97);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  animation: scaleInOut 0.5s ease-in-out forwards;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 1;
+  transform: scale(0.9);
+}
 .coffee-item img {
   width: 100%;
   height: auto;
