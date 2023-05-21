@@ -2,7 +2,7 @@
 node_modules
 /dist
 
-*.mp4
+video1.mp4
 
 # local env files
 .env.local
