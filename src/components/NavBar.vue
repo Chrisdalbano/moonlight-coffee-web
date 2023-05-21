@@ -7,11 +7,11 @@
 
       <div class="space-x-12">
         <router-link to="/menu" class="hover:text-gray-500 text-xl">MENU</router-link>
-        <router-link to="/about" class="hover:text-gray-500 text-xl"
-          >ABOUT US</router-link
+        <router-link to="/location" class="hover:text-gray-500 text-xl"
+          >LOCATION</router-link
         >
-        <router-link to="/order-online" class="hover:text-gray-500 text-xl"
-          >ORDER ONLINE</router-link
+        <router-link to="/about-us" class="hover:text-gray-500 text-xl"
+          >ABOUT US</router-link
         >
       </div>
     </div>
