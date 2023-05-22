@@ -146,7 +146,7 @@
         of our Full Moon to the rich and mysterious characteristics of our Dark
         Side with sofisticated flavors. What is your favorite phase?
       </p>
-      <div class="container mx-auto grid grid-cols-4 gap-2">
+      <div class="container mx-auto grid grid-cols-4 gap-2 font-bad-script">
         <div class="coffee-item">
           <img src="@/assets/fullmoon-roast.png" alt="Light Roast" />
           <h3 class="text-2xl mb-2 font-bold">Full Moon</h3>
@@ -220,23 +220,23 @@
           </ul>
         </div>
         <div class="mb-8">
-          <h3 class="text-2xl text-white font-bold mb-4">Pastries</h3>
+          <h3 class="text-2xl text-white font-bold mb-4">Signature Bites</h3>
           <ul class="menu-items">
             <li class="menu-item flex justify-between items-center mb-2">
-              <span class="item-name text-white">Media Luna</span>
-              <span class="item-price text-yellow-400">$3.50</span>
+              <span class="item-name text-white">Dos Medialunas</span>
+              <span class="item-price text-yellow-400">$7.50</span>
             </li>
             <li class="menu-item flex justify-between items-center mb-2">
-              <span class="item-name text-white">Muffin</span>
-              <span class="item-price text-yellow-400">$3.50</span>
+              <span class="item-name text-white">Berriest Honey Eclairs</span>
+              <span class="item-price text-yellow-400">$6.50</span>
             </li>
             <li class="menu-item flex justify-between items-center mb-2">
-              <span class="item-name text-white">Scone</span>
-              <span class="item-price text-yellow-400">$3.50</span>
+              <span class="item-name text-white">Avocado Toast</span>
+              <span class="item-price text-yellow-400">$6.50</span>
             </li>
             <li class="menu-item flex justify-between items-center">
-              <span class="item-name text-white">Cinnamon Roll</span>
-              <span class="item-price text-yellow-400">$4.00</span>
+              <span class="item-name text-white">Moonlight Breakfast</span>
+              <span class="item-price text-yellow-400">$9.00</span>
             </li>
           </ul>
         </div>
@@ -261,11 +261,12 @@
         </div>
       </div>
       <div class="flex justify-center pt-4">
-        <button
+        <router-link
+          to="/menu"
           class="mb-4 border-2 border-white bg-transparent text-lg text-white hover:bg-white hover:text-black py-2 px-4 rounded font-bad-script font-bold"
         >
           Dive into the menu
-        </button>
+        </router-link>
       </div>
     </section>
     <section class="p-6 bg-gray-100">
@@ -295,15 +296,14 @@
         </div>
       </div>
     </section>
-
-    <footer class="bg-amber-800 text-white p-4">
-      <p class="text-center">Made with ❤️ by Moonlight Coffee</p>
-      <p class="text-center">
-        &copy; {{ new Date().getFullYear() }} Moonlight Coffee. All rights
-        reserved.
-      </p>
-    </footer>
   </div>
+  <footer class="bg-amber-800 text-white p-4">
+    <p class="text-center">Made with ❤️ by Moonlight Coffee</p>
+    <p class="text-center">
+      &copy; {{ new Date().getFullYear() }} Moonlight Coffee. All rights
+      reserved.
+    </p>
+  </footer>
 </template>
 
 <script>

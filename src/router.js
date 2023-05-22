@@ -13,12 +13,16 @@ const routes = [
         name: 'Menu',
         component: MenuView,
     }
-
 ]
 
 const router = createRouter({
     history: createWebHistory(),
     routes,
+});
+
+router.beforeEach((to, from, next) => {
+    next();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 export default router;
