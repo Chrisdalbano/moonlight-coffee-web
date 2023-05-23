@@ -14,8 +14,8 @@
           <div v-if="$route.path === '/location'" class="slide-indicator"></div>
           LOCATION
         </router-link>
-        <router-link to="/about-us" class="menu-link hover:text-gray-500 text-xl">
-          <div v-if="$route.path === '/about-us'" class="slide-indicator"></div>
+        <router-link to="/about" class="menu-link hover:text-gray-500 text-xl">
+          <div v-if="$route.path === '/about'" class="slide-indicator"></div>
           ABOUT US
         </router-link>
       </div>

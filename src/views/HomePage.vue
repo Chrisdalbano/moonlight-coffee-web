@@ -81,11 +81,12 @@
             shimmer of starlight, coffee is not simply a beverage, but a
             companion to the whispers of the night.
           </p>
-          <button
-            class="mt-8 border-2 border-black bg-transparent text-lg text-black hover:bg-black hover:text-white py-2 px-4 rounded font-bad-script font-bold"
+          <router-link 
+            to="/about"
+            class="inline-block self-start mt-8 border-2 border-black bg-transparent text-lg text-black hover:bg-black hover:text-white py-2 px-4 rounded font-bad-script font-bold"
           >
             Learn more...
-          </button>
+          </router-link>
         </div>
       </div>
     </section>
@@ -124,7 +125,11 @@
         />
       </div>
       <div class="flex justify-center">
-        <router-link to="/location" class="mb-4 border-2 border-white bg-transparent text-lg text-white hover:bg-white hover:text-black py-2 px-4 rounded font-bad-script font-bold">Get directions</router-link>
+        <router-link
+          to="/location"
+          class="mb-4 border-2 border-white bg-transparent text-lg text-white hover:bg-white hover:text-black py-2 px-4 rounded font-bad-script font-bold"
+          >Get directions</router-link
+        >
       </div>
     </section>
 

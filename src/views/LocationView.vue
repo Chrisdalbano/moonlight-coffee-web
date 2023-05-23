@@ -33,7 +33,7 @@
       <!-- Right column -->
       <div class="flex flex-col items-center justify-center">
         <router-link to="/menu" class="mb-4 border-2 border-white bg-transparent text-lg text-white hover:bg-white hover:text-black py-2 px-4 rounded font-bad-script font-bold">Show Menu</router-link>
-        <router-link to="/about-us" class="mb-4 border-2 border-white bg-transparent text-lg text-white hover:bg-white hover:text-black py-2 px-4 rounded font-bad-script font-bold">About us</router-link>
+        <router-link to="/about" class="mb-4 border-2 border-white bg-transparent text-lg text-white hover:bg-white hover:text-black py-2 px-4 rounded font-bad-script font-bold">About us</router-link>
       </div>
     </div>
   </section>
