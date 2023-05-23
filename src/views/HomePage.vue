@@ -124,11 +124,7 @@
         />
       </div>
       <div class="flex justify-center">
-        <button
-          class="mb-4 border-2 border-white bg-transparent text-lg text-white hover:bg-white hover:text-black py-2 px-4 rounded font-bad-script font-bold"
-        >
-          Get directions
-        </button>
+        <router-link to="/location" class="mb-4 border-2 border-white bg-transparent text-lg text-white hover:bg-white hover:text-black py-2 px-4 rounded font-bad-script font-bold">Get directions</router-link>
       </div>
     </section>
 
