@@ -1,40 +1,36 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import HomePage from './views/HomePage.vue';
-import MenuView from './views/MenuView.vue';
-import LocationView from './views/LocationView.vue';
-import AboutView from './views/AboutView.vue';
+import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
-    {
-        path: '/',
-        name: 'Home',
-        component: HomePage,
-    },
-    {
-        path: '/menu',
-        name: 'Menu',
-        component: MenuView,
-    },
-    {
-        path: '/location',
-        name: 'Location',
-        component: LocationView,
-    },
-    {
-        path: '/about',
-        name: 'About',
-        component: AboutView,
-    }
-]
+  {
+    path: "/",
+    name: "Home",
+    component: () => import("./views/HomePage.vue"),
+  },
+  {
+    path: "/menu",
+    name: "Menu",
+    component: () => import("./views/MenuView.vue"),
+  },
+  {
+    path: "/location",
+    name: "Location",
+    component: () => import("./views/LocationView.vue"),
+  },
+  {
+    path: "/about",
+    name: "About",
+    component: () => import("./views/AboutView.vue"),
+  },
+];
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes,
+  history: createWebHistory(),
+  routes,
 });
 
 router.beforeEach((to, from, next) => {
-    next();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  next();
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
 export default router;

@@ -10,7 +10,10 @@
           <div v-if="$route.path === '/menu'" class="slide-indicator"></div>
           MENU
         </router-link>
-        <router-link to="/location" class="menu-link hover:text-gray-500 text-xl">
+        <router-link
+          to="/location"
+          class="menu-link hover:text-gray-500 text-xl"
+        >
           <div v-if="$route.path === '/location'" class="slide-indicator"></div>
           LOCATION
         </router-link>
