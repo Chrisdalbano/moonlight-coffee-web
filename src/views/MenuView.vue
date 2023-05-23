@@ -201,7 +201,7 @@
           Vodka, espresso, coffee liqueur, and simple syrup. Shaken and served
           chilled.
         </p>
-        <p class="text-lg font-bold mt-2">$12.00</p>
+        <p class="text-lg font-bold mt-2">$11.00</p>
       </div>
 
       <div
@@ -230,7 +230,7 @@
         />
         <h3 class="text-xl font-bold font-bad-script">Tequila Moonrise</h3>
         <p class="text-sm font-poppins">
-          Tequila, grenadine, lime juice, and soda water. Served on the rocks.
+          Tequila, Blue Curacao, Blueberry syrup, lime juice and soda water. Shaken and served chilled.
         </p>
         <p class="text-lg font-bold mt-2">$11.00</p>
       </div>

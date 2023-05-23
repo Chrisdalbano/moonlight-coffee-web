@@ -248,15 +248,15 @@
           <ul class="menu-items">
             <li class="menu-item flex justify-between items-center mb-2">
               <span class="item-name text-white">Espresso Martini</span>
-              <span class="item-price text-yellow-400">$8.00</span>
+              <span class="item-price text-yellow-400">$11.00</span>
             </li>
             <li class="menu-item flex justify-between items-center mb-2">
               <span class="item-name text-white">Orlando Sour</span>
-              <span class="item-price text-yellow-400">$9.00</span>
+              <span class="item-price text-yellow-400">$10.00</span>
             </li>
             <li class="menu-item flex justify-between items-center">
               <span class="item-name text-white">Tequila Moonrise</span>
-              <span class="item-price text-yellow-400">$8.50</span>
+              <span class="item-price text-yellow-400">$11.00</span>
             </li>
           </ul>
         </div>
