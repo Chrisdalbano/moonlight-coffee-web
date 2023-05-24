@@ -1,5 +1,13 @@
 <template>
   <div class="flex flex-col">
+    <div id="loader" v-if="showLoader" :class="{ 'loader-hidden': isHidden }" @dblclick="skipLoading">
+      <div id="welcomeMessage">
+        <div id="welcomeTo" class="font-bad-script">WELCOME TO</div>
+        <div id="moonlightCoffee" class="font-poppins text-yellow-300">
+          MOONLIGHT COFFEE
+        </div>
+      </div>
+    </div>
     <main class="h-[60vh] bg-black flex items-center justify-start relative">
       <transition name="fade" mode="out-in">
         <div
@@ -81,7 +89,7 @@
             shimmer of starlight, coffee is not simply a beverage, but a
             companion to the whispers of the night.
           </p>
-          <router-link 
+          <router-link
             to="/about"
             class="inline-block self-start mt-8 border-2 border-black bg-transparent text-lg text-black hover:bg-black hover:text-white py-2 px-4 rounded font-bad-script font-bold"
           >
@@ -125,7 +133,6 @@
         />
       </div>
       <div class="flex justify-center">
-        
         <router-link
           to="/location"
           class="mb-4 border-2 border-white bg-transparent text-lg text-white hover:bg-white hover:text-black py-2 px-4 rounded font-bad-script font-bold"
@@ -149,19 +156,39 @@
         Side with sofisticated flavors. What is your favorite phase?
       </p>
       <div class="container mx-auto grid grid-cols-4 gap-2 font-bad-script">
-        <div class="coffee-item">
+        <div
+          class="coffee-item"
+          @mousedown="dragStart"
+          @mousemove="drag"
+          @mouseup="dragEnd"
+        >
           <img src="@/assets/fullmoon-roast.png" alt="Light Roast" />
           <h3 class="text-2xl mb-2 font-bold">Full Moon</h3>
         </div>
-        <div class="coffee-item">
+        <div
+          class="coffee-item"
+          @mousedown="dragStart"
+          @mousemove="drag"
+          @mouseup="dragEnd"
+        >
           <img src="@/assets/firstquarter-roast.png" alt="First Quarter" />
           <h3 class="text-2xl mb-2 font-bold">First Quarter</h3>
         </div>
-        <div class="coffee-item">
+        <div
+          class="coffee-item"
+          @mousedown="dragStart"
+          @mousemove="drag"
+          @mouseup="dragEnd"
+        >
           <img src="@/assets/darkside-roast.png" alt="Darkside of the Moon" />
           <h3 class="text-2xl mb-2 font-bold">Dark Side</h3>
         </div>
-        <div class="coffee-item">
+        <div
+          class="coffee-item"
+          @mousedown="dragStart"
+          @mousemove="drag"
+          @mouseup="dragEnd"
+        >
           <img src="@/assets/moondust-roast.png" alt="Moondust Blend" />
           <h3 class="text-2xl mb-2 font-bold">Moon Dust Blend</h3>
         </div>
@@ -310,11 +337,16 @@
 
 <script>
 import video1 from "@/assets/video1.mp4";
+import anime from "animejs";
 
 export default {
   name: "HomePage",
   data() {
     return {
+
+      showLoader: true,
+      isLoading: true,
+      isHidden: false,
       slides: [
         {
           video: video1,
@@ -364,9 +396,89 @@ export default {
     };
   },
   mounted() {
+    setTimeout(() => {
+    this.showLoader = false;
+  }, 7000);
     setInterval(() => {
       this.nextSlide();
     }, 14000); // Change slide every 14 seconds
+
+    // anime({
+    //   targets: "#loader",
+    //   opacity: [1, 0],
+    //   duration: 2000, // adjust as needed
+    //   easing: "easeInOutQuad",
+    //   complete: () => {
+    //     this.isLoading = false; // Change data property when the animation completes
+    //   },
+    // });
+
+    const loader = anime.timeline({
+      complete: () => {
+        this.isLoading = false; // Change data property when the animation completes
+      },
+    });
+
+    loader
+      .add(
+        {
+          targets: "#welcomeTo",
+          translateY: [-50, 0], 
+          opacity: [0, 1],
+          duration: 500, 
+          easing: "easeOutExpo",
+        },
+        0
+      ) // Starts at the beginning of the timeline
+      .add(
+        {
+          targets: "#moonlightCoffee",
+          translateY: [50, 0], // Change as needed
+          opacity: [0, 1],
+          duration: 500, // adjust as needed
+          easing: "easeOutExpo",
+        },
+        0
+      ) // Starts at the beginning of the timeline
+      .add(
+        {
+          targets: "#welcomeTo",
+          translateY: [0, -50], // Change as needed
+          opacity: [1, 0],
+          duration: 1500, // adjust as needed
+          easing: "easeInExpo",
+        },
+        "+=1000"
+      ) // Starts 1000ms after the beginning of the timeline
+      .add(
+        {
+          targets: "#moonlightCoffee",
+          translateY: [0, 50], // Change as needed
+          opacity: [1, 0],
+          duration: 1500, // adjust as needed
+          easing: "easeInExpo",
+        },
+        "+=1000"
+      ) // Starts 1000ms after the beginning of the timeline
+      .add({
+        targets: "#loader",
+        opacity: [1, 0],
+        duration: 1500, // adjust as needed
+        easing: "easeInOutQuad",
+      },
+      )
+      .add({
+      targets: "#loader",
+      opacity: [1, 0],
+      duration: 1500, // adjust as needed
+      easing: "easeInOutQuad",
+      complete: (animation) => {
+        // wait for the transition to end before setting display: none
+        animation.animatables[0].target.addEventListener('transitionend', () => {
+          this.isHidden = true;
+        }, { once: true });
+      }
+    });
   },
   computed: {
     currentReview() {
@@ -376,6 +488,34 @@ export default {
     },
   },
   methods: {
+    skipLoading() {
+    this.showLoader = false;
+  },
+    dragStart(event) {
+      this.dragging = true;
+      anime({
+        targets: event.target,
+        scale: 1.2,
+        duration: 200,
+      });
+    },
+    drag(event) {
+      if (!this.dragging) return;
+      anime({
+        targets: event.target,
+        left: `${event.pageX}px`,
+        top: `${event.pageY}px`,
+        duration: 0,
+      });
+    },
+    dragEnd(event) {
+      this.dragging = false;
+      anime({
+        targets: event.target,
+        scale: 1.0,
+        duration: 200,
+      });
+    },
     nextSlide() {
       this.currentSlide = (this.currentSlide + 1) % this.slides.length;
     },
@@ -395,7 +535,7 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 #menu-section {
   background-image: url("@/assets/chalkboard-texture.jpg");
   background-size: cover;
@@ -516,5 +656,36 @@ button {
 
 .arrow-button {
   font-size: 2rem; /* You can adjust this value for your needs */
+}
+#loader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+
+
+
+#welcomeMessage {
+  text-align: center;
+  color: white;
+  font-size: 7em;
+}
+
+#welcomeTo,
+#moonlightCoffee {
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.loader-hidden {
+  display: none;
 }
 </style>
