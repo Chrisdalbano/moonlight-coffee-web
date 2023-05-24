@@ -676,7 +676,7 @@ button {
 #welcomeMessage {
   text-align: center;
   color: white;
-  font-size: 7em;
+  font-size: 6em;
 }
 
 #welcomeTo,

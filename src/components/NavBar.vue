@@ -58,4 +58,15 @@ export default {
 .router-link-exact-active .slide-indicator {
   width: 100%;
 }
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-link {
+    margin-top: 10px;
+  }
+}
 </style>
