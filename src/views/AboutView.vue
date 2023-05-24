@@ -87,6 +87,13 @@
       </div>
     </div>
   </section>
+  <footer class="bg-amber-800 text-white p-4">
+    <p class="text-center">Made with ❤️ by Chrisdalbano</p>
+    <p class="text-center">
+      &copy; {{ new Date().getFullYear() }} Moonlight Coffee. All rights
+      reserved.
+    </p>
+  </footer>
 </template>
 
 <script></script>

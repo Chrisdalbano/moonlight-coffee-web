@@ -111,7 +111,7 @@
         The Location
       </h2>
       <!-- Include your featured products here -->
-      <p class="mb-4 text-lg text-white flex justify-center">
+      <p class="mb-4 text-lg text-white flex justify-center font-poppins">
         Located in Orlando, Florida, a couple of walking distance from the Lake
         Eola, Moonlight Coffee serves as a cozy and social spot for the
         community looking for any refreshments or pick-me-ups.
@@ -138,7 +138,7 @@
       <h2 class="flex justify-center text-4xl font-bad-script font-bold mb-8">
         The Coffee of Moonlight
       </h2>
-      <p class="text-lg mb-8 flex text-center">
+      <p class="text-lg mb-8 flex text-center font-poppins">
         At Moonlight Coffee, we are proud to present our selection of premier
         coffees sourced from where the Moon meets the Sun at the exquisite
         landscapes of Colombia and Ethiopia. Our coffee beans are carefully
@@ -300,7 +300,7 @@
     </section>
   </div>
   <footer class="bg-amber-800 text-white p-4">
-    <p class="text-center">Made with ❤️ by Moonlight Coffee</p>
+    <p class="text-center">Made with ❤️ by Chrisdalbano</p>
     <p class="text-center">
       &copy; {{ new Date().getFullYear() }} Moonlight Coffee. All rights
       reserved.
