@@ -43,10 +43,11 @@
             {{ slides[currentSlide].subtitle }}
           </p>
           <button
-            class="bg-amber-600 hover:bg-amber-800 text-white font-bold py-2 px-4 rounded"
-          >
-            Discover our shop
-          </button>
+  class="bg-amber-600 hover:bg-amber-800 text-white font-bold py-2 px-4 rounded"
+  v-scroll-to="'#moon-section'"
+>
+  Discover our shop
+</button>
         </div>
       </div>
 
@@ -99,7 +100,7 @@
       </div>
     </section>
 
-    <section class="p-8 bg-black opacity-70 flex flex-col items-center">
+    <section class="p-8 bg-black opacity-70 flex flex-col items-center" id="moon-section">
       <p class="text-2xl text-white text-center italic max-w-lg mx-auto">
         Moonlight Coffee specializes in producing the freshest coffee from small
         and dedicated farms providing the maximum usage of coffee equipment with
@@ -636,23 +637,7 @@ button {
   align-self: flex-start; /* Aligns button to start */
 }
 
-@media (max-width: 640px) {
-  .moonlight-section {
-    flex-direction: column;
-  }
 
-  .moonlight-image {
-    order: -1;
-    max-width: 100%;
-    height: auto;
-    max-height: unset; /* remove the height limit for smaller screens */
-  }
-
-  .moonlight-text,
-  .moonlight-image {
-    flex: 1 1 auto; /* Full width on small screens */
-  }
-}
 
 .arrow-button {
   font-size: 2rem; /* You can adjust this value for your needs */
@@ -687,5 +672,27 @@ button {
 
 .loader-hidden {
   display: none;
+}
+
+@media (max-width: 640px) {
+  .moonlight-section {
+    flex-direction: column;
+  }
+
+  .moonlight-image {
+    order: -1;
+    max-width: 100%;
+    height: auto;
+    max-height: unset; /* remove the height limit for smaller screens */
+  }
+
+  .moonlight-text,
+  .moonlight-image {
+    flex: 1 1 auto; /* Full width on small screens */
+  }
+
+  #welcomeMessage{
+    font-size: 4em;
+  }
 }
 </style>

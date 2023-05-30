@@ -7,7 +7,7 @@
 
     <div class="absolute inset-0 flex items-center justify-center">
       <div class="text-white p-4 rounded ml-10">
-        <h2 class="text-8xl font-bad-script mb-6 font-bold text-shadow">
+        <h2 class="lg:text-8xl sm:text2xl font-bad-script mb-6 font-bold text-shadow">
           About Moonlight Coffee
         </h2>
         <p class="text-2xl mb-4 text-shadow">
@@ -62,10 +62,7 @@
         <p class="text-lg max-w-lg font-poppins">
           Isaac is a night owl by nature, with a fascination for the cosmos that
           traces back to his childhood. His love for astronomy led to countless
-          nights of stargazing, where he found tranquility and peace. The idea
-          of Moonlight Coffee was born on one such night, under a sky full of
-          stars, where he wished to blend his love for the night and his passion
-          for coffee into a unique experience.
+          nights of stargazing, where he found tranquility and peace. 
         </p>
       </div>
 
@@ -78,11 +75,7 @@
         <h4 class="text-2xl font-bold mb-2 font-bad-script">Peter Moonbeam</h4>
         <p class="text-lg max-w-lg font-poppins">
           Peter, a coffee enthusiast and expert barista, has always felt a
-          special connection to the moon and the serene silence it brings. His
-          fascination with the art and science of coffee-making led her to
-          explore a wide array of brewing methods and coffee beans from around
-          the world. Teaming up with Isaac, she has been instrumental in
-          curating the rich, flavorful coffee that defines Moonlight Coffee.
+          special connection to the moon and the serene silence it brings. 
         </p>
       </div>
     </div>

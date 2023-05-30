@@ -1,23 +1,23 @@
 <template>
   <nav class="bg-black text-white font-bold p-4">
-    <div class="container mx-auto flex items-center justify-between">
+    <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between">
       <router-link to="/" class="text-2xl font-bold">
-        <img :src="logo" alt="Moonlight Coffee logo" class="h-16 w-auto pl-2" />
+        <img :src="logo" alt="Moonlight Coffee logo" class="logo" />
       </router-link>
 
-      <div class="space-x-12">
-        <router-link to="/menu" class="menu-link hover:text-gray-500 text-xl">
+      <div class="mt-4 sm:mt-0 sm:space-x-12 flex flex-col sm:flex-row">
+        <router-link to="/menu" class="menu-link hover:text-gray-500 text-lg sm:text-xl">
           <div v-if="$route.path === '/menu'" class="slide-indicator"></div>
           MENU
         </router-link>
         <router-link
           to="/location"
-          class="menu-link hover:text-gray-500 text-xl"
+          class="menu-link hover:text-gray-500 text-lg sm:text-xl"
         >
           <div v-if="$route.path === '/location'" class="slide-indicator"></div>
           LOCATION
         </router-link>
-        <router-link to="/about" class="menu-link hover:text-gray-500 text-xl">
+        <router-link to="/about" class="menu-link hover:text-gray-500 text-lg sm:text-xl">
           <div v-if="$route.path === '/about'" class="slide-indicator"></div>
           ABOUT US
         </router-link>
@@ -59,14 +59,19 @@ export default {
   width: 100%;
 }
 
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.logo {
+  height: 12rem;
+  width: auto;
+}
 
+@media (max-width: 768px) {
+  .logo {
+    height: 6rem;
+    width: auto;
+  }
+  
   .menu-link {
-    margin-top: 10px;
+    text-align: center;
   }
 }
 </style>
