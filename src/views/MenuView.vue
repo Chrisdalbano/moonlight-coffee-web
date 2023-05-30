@@ -25,7 +25,7 @@
 
     <div class="absolute inset-0 flex items-center justify-center">
       <div class="text-white p-4 rounded ml-10">
-        <h2 class="lg:text-8xl sm:text2xl font-bad-script mb-6 font-bold text-shadow">
+        <h2 class="lg:text-8xl text-6xl font-bad-script mb-6 font-bold ">
           The Moonlight Menu
         </h2>
         <p class="text-2xl mb-4 text-shadow">

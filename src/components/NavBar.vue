@@ -60,13 +60,13 @@ export default {
 }
 
 .logo {
-  height: 12rem;
+  height: 4.5rem;
   width: auto;
 }
 
 @media (max-width: 768px) {
   .logo {
-    height: 6rem;
+    height: 4rem;
     width: auto;
   }
   
