@@ -2,7 +2,7 @@
 
 Moonlight Coffee is a landing website for a fictional local coffee shop based in Orlando, FL. The website provides the user with classic restaurant elements in a Single Page Application (SPA) format using Vue Router to achieve this.
 
-<img src="src/assets/logo-mc-2.png" alt="alt text" width="150px" height="250px">
+<img src="src/assets/logo-mc-2.png" alt="alt text" width="250px" height="150px">
 
 ## Technologies Used
 
