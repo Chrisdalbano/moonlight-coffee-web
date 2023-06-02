@@ -243,11 +243,34 @@
       </p>
   </section>
   <footer class="bg-amber-800 text-white p-4">
-    <p class="text-center">Made with ❤️ by Chrisdalbano</p>
+    <p class="text-center">
+      Made with ❤️ by
+      <a
+        href="http://www.chrisdalbano.com"
+        class="transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+        target="_blank"
+      >
+        Chrisdalbano
+      </a>
+    </p>
     <p class="text-center">
       &copy; {{ new Date().getFullYear() }} Moonlight Coffee. All rights
       reserved.
     </p>
+    <section class="p-4 text-white">
+      <h2 class="text-center text-lg mb-2">Sign up for our Newsletter</h2>
+      <form class="flex justify-center">
+        <input
+          type="email"
+          v-model="email"
+          placeholder="Your email"
+          class="p-2 rounded-l-md"
+        />
+        <button type="submit" class="p-2 bg-white text-amber-800 rounded-r-md">
+          Sign up
+        </button>
+      </form>
+    </section>
   </footer>
 </template>
 <script>

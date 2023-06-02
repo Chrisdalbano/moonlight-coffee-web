@@ -1,6 +1,11 @@
 <template>
   <div class="flex flex-col">
-    <div id="loader" v-if="showLoader" :class="{ 'loader-hidden': isHidden }" @dblclick="skipLoading">
+    <div
+      id="loader"
+      v-if="showLoader"
+      :class="{ 'loader-hidden': isHidden }"
+      @dblclick="skipLoading"
+    >
       <div id="welcomeMessage">
         <div id="welcomeTo" class="font-bad-script">WELCOME TO</div>
         <div id="moonlightCoffee" class="font-poppins text-yellow-300">
@@ -43,11 +48,11 @@
             {{ slides[currentSlide].subtitle }}
           </p>
           <button
-  class="bg-amber-600 hover:bg-amber-800 text-white font-bold py-2 px-4 rounded"
-  v-scroll-to="'#moon-section'"
->
-  Discover our shop
-</button>
+            class="bg-amber-600 hover:bg-amber-800 text-white font-bold py-2 px-4 rounded"
+            v-scroll-to="'#moon-section'"
+          >
+            Discover our shop
+          </button>
         </div>
       </div>
 
@@ -100,7 +105,10 @@
       </div>
     </section>
 
-    <section class="p-8 bg-black opacity-70 flex flex-col items-center" id="moon-section">
+    <section
+      class="p-8 bg-black opacity-70 flex flex-col items-center"
+      id="moon-section"
+    >
       <p class="text-2xl text-white text-center italic max-w-lg mx-auto">
         Moonlight Coffee specializes in producing the freshest coffee from small
         and dedicated farms providing the maximum usage of coffee equipment with
@@ -328,11 +336,34 @@
     </section>
   </div>
   <footer class="bg-amber-800 text-white p-4">
-    <p class="text-center">Made with ❤️ by Chrisdalbano</p>
+    <p class="text-center">
+      Made with ❤️ by
+      <a
+        href="http://www.chrisdalbano.com"
+        class="transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+        target="_blank"
+      >
+        Chrisdalbano
+      </a>
+    </p>
     <p class="text-center">
       &copy; {{ new Date().getFullYear() }} Moonlight Coffee. All rights
       reserved.
     </p>
+    <section class="p-4 text-white">
+      <h2 class="text-center text-lg mb-2">Sign up for our Newsletter</h2>
+      <form class="flex justify-center">
+        <input
+          type="email"
+          v-model="email"
+          placeholder="Your email"
+          class="p-2 rounded-l-md"
+        />
+        <button type="submit" class="p-2 bg-white text-amber-800 rounded-r-md">
+          Sign up
+        </button>
+      </form>
+    </section>
   </footer>
 </template>
 
@@ -344,8 +375,7 @@ export default {
   name: "HomePage",
   data() {
     return {
-
-      showLoader: true,
+      showLoader: false,
       isLoading: true,
       isHidden: false,
       slides: [
@@ -397,89 +427,90 @@ export default {
     };
   },
   mounted() {
+    this.checkFirstVisit();
     setTimeout(() => {
-    this.showLoader = false;
-  }, 7000);
+      this.showLoader = false;
+    }, 7000);
     setInterval(() => {
       this.nextSlide();
     }, 14000); // Change slide every 14 seconds
 
-    // anime({
-    //   targets: "#loader",
-    //   opacity: [1, 0],
-    //   duration: 2000, // adjust as needed
-    //   easing: "easeInOutQuad",
-    //   complete: () => {
-    //     this.isLoading = false; // Change data property when the animation completes
-    //   },
-    // });
-
-    const loader = anime.timeline({
-      complete: () => {
-        this.isLoading = false; // Change data property when the animation completes
-      },
-    });
-
-    loader
-      .add(
-        {
-          targets: "#welcomeTo",
-          translateY: [-50, 0], 
-          opacity: [0, 1],
-          duration: 500, 
-          easing: "easeOutExpo",
+    // Make sure all the elements exist
+    if (
+      document.getElementById("loader") &&
+      document.getElementById("welcomeTo") &&
+      document.getElementById("moonlightCoffee")
+    ) {
+      const loader = anime.timeline({
+        complete: () => {
+          this.isLoading = false; // Change data property when the animation completes
         },
-        0
-      ) // Starts at the beginning of the timeline
-      .add(
-        {
-          targets: "#moonlightCoffee",
-          translateY: [50, 0], // Change as needed
-          opacity: [0, 1],
-          duration: 500, // adjust as needed
-          easing: "easeOutExpo",
-        },
-        0
-      ) // Starts at the beginning of the timeline
-      .add(
-        {
-          targets: "#welcomeTo",
-          translateY: [0, -50], // Change as needed
+      });
+
+      loader
+        .add(
+          {
+            targets: "#welcomeTo",
+            translateY: [-50, 0],
+            opacity: [0, 1],
+            duration: 500,
+            easing: "easeOutExpo",
+          },
+          0
+        ) // Starts at the beginning of the timeline
+        .add(
+          {
+            targets: "#moonlightCoffee",
+            translateY: [50, 0], // Change as needed
+            opacity: [0, 1],
+            duration: 500, // adjust as needed
+            easing: "easeOutExpo",
+          },
+          0
+        ) // Starts at the beginning of the timeline
+        .add(
+          {
+            targets: "#welcomeTo",
+            translateY: [0, -50], // Change as needed
+            opacity: [1, 0],
+            duration: 1500, // adjust as needed
+            easing: "easeInExpo",
+          },
+          "+=1000"
+        ) // Starts 1000ms after the beginning of the timeline
+        .add(
+          {
+            targets: "#moonlightCoffee",
+            translateY: [0, 50], // Change as needed
+            opacity: [1, 0],
+            duration: 1500, // adjust as needed
+            easing: "easeInExpo",
+          },
+          "+=1000"
+        ) // Starts 1000ms after the beginning of the timeline
+        .add({
+          targets: "#loader",
           opacity: [1, 0],
           duration: 1500, // adjust as needed
-          easing: "easeInExpo",
-        },
-        "+=1000"
-      ) // Starts 1000ms after the beginning of the timeline
-      .add(
-        {
-          targets: "#moonlightCoffee",
-          translateY: [0, 50], // Change as needed
+          easing: "easeInOutQuad",
+        })
+        .add({
+          targets: "#loader",
           opacity: [1, 0],
           duration: 1500, // adjust as needed
-          easing: "easeInExpo",
-        },
-        "+=1000"
-      ) // Starts 1000ms after the beginning of the timeline
-      .add({
-        targets: "#loader",
-        opacity: [1, 0],
-        duration: 1500, // adjust as needed
-        easing: "easeInOutQuad",
-      },
-      )
-      .add({
-      targets: "#loader",
-      opacity: [1, 0],
-      duration: 1500, // adjust as needed
-      easing: "easeInOutQuad",
-      complete: (animation) => {
-        // wait for the transition to end before setting display: none
-        animation.animatables[0].target.addEventListener('transitionend', () => {
-          this.isHidden = true;
-        }, { once: true });
-      }
-    });
+          easing: "easeInOutQuad",
+          complete: (animation) => {
+            // wait for the transition to end before setting display: none
+            animation.animatables[0].target.addEventListener(
+              "transitionend",
+              () => {
+                this.isHidden = true;
+              },
+              { once: true }
+            );
+          },
+        });
+    }
   },
   computed: {
     currentReview() {
@@ -489,9 +520,15 @@ export default {
     },
   },
   methods: {
+    checkFirstVisit() {
+      if (localStorage.getItem("visited") === null) {
+        this.showLoader = true;
+        localStorage.setItem("visited", true);
+      }
+    },
     skipLoading() {
-    this.showLoader = false;
-  },
+      this.showLoader = false;
+    },
     dragStart(event) {
       this.dragging = true;
       anime({
@@ -637,8 +674,6 @@ button {
   align-self: flex-start; /* Aligns button to start */
 }
 
-
-
 .arrow-button {
   font-size: 2rem; /* You can adjust this value for your needs */
 }
@@ -655,8 +690,6 @@ button {
   align-items: center;
   opacity: 1;
 }
-
-
 
 #welcomeMessage {
   text-align: center;
@@ -691,7 +724,7 @@ button {
     flex: 1 1 auto; /* Full width on small screens */
   }
 
-  #welcomeMessage{
+  #welcomeMessage {
     font-size: 4em;
   }
 }
