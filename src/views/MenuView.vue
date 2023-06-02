@@ -9,10 +9,12 @@
           backgroundPosition: 'center',
         }"
         class="w-full h-full object-cover"
+        rel="preload"
         :key="slides[currentSlide].image"
       ></div>
       <video
         v-else
+        preload="auto"
         autoplay
         muted
         loop
@@ -25,7 +27,7 @@
 
     <div class="absolute inset-0 flex items-center justify-center">
       <div class="text-white p-4 rounded ml-10">
-        <h2 class="lg:text-8xl text-6xl font-bad-script mb-6 font-bold ">
+        <h2 class="lg:text-8xl text-6xl font-bad-script mb-6 font-bold">
           The Moonlight Menu
         </h2>
         <p class="text-2xl mb-4 text-shadow">
@@ -230,17 +232,19 @@
         />
         <h3 class="text-xl font-bold font-bad-script">Tequila Moonrise</h3>
         <p class="text-sm font-poppins">
-          Tequila, Blue Curacao, Blueberry syrup, lime juice and soda water. Shaken and served chilled.
+          Tequila, Blue Curacao, Blueberry syrup, lime juice and soda water.
+          Shaken and served chilled.
         </p>
         <p class="text-lg font-bold mt-2">$11.00</p>
       </div>
-      
     </div>
-    <p class="flex justify-center text-sm text-white font-poppins mt-4 opacity-90">
-        All customers ordering alcoholic beverages must be at least 21 years of
-        age, in compliance with local legal regulations. Proof of age will be
-        required. Let's all enjoy a safe and fun experience at Moonlight Coffee.
-      </p>
+    <p
+      class="flex justify-center text-sm text-white font-poppins mt-4 opacity-90"
+    >
+      All customers ordering alcoholic beverages must be at least 21 years of
+      age, in compliance with local legal regulations. Proof of age will be
+      required. Let's all enjoy a safe and fun experience at Moonlight Coffee.
+    </p>
   </section>
   <footer class="bg-amber-800 text-white p-4">
     <p class="text-center">

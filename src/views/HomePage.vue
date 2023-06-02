@@ -2,7 +2,7 @@
   <div class="flex flex-col">
     <div
       id="loader"
-      v-if="showLoader"
+      v-show="showLoader"
       :class="{ 'loader-hidden': isHidden }"
       @dblclick="skipLoading"
     >
@@ -16,7 +16,7 @@
     <main class="h-[60vh] bg-black flex items-center justify-start relative">
       <transition name="fade" mode="out-in">
         <div
-          v-if="slides[currentSlide].image"
+          v-if="slides[currentSlide].image" rel="preload"
           :style="{
             backgroundImage: `url(${slides[currentSlide].image})`,
             backgroundSize: 'cover',
@@ -27,6 +27,7 @@
         ></div>
         <video
           v-else
+          preload="auto"
           autoplay
           muted
           loop
@@ -570,6 +571,24 @@ export default {
         (this.currentReviewIndex - 1 + this.reviews.length) %
         this.reviews.length;
     },
+    watch: {
+  showLoader: {
+    handler: function (val) {
+      if (val) {
+        // add your animation here
+      }
+    },
+    immediate: true,
+  },
+  isHidden: {
+    handler: function (val) {
+      if (val) {
+        // add your animation here
+      }
+    },
+    immediate: true,
+  },
+}
   },
 };
 </script>

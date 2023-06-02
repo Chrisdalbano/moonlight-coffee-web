@@ -7,6 +7,7 @@
         backgroundPosition: 'center',
       }"
       class="w-full h-full object-cover"
+      rel="preload"
       :key="slides[currentSlide].image"
     ></div>
 
@@ -19,28 +20,40 @@
       </div>
     </div>
   </main>
-  
+
   <section class="bg-black text-white py-8 px-4 mt-8 font-poppins">
     <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
       <!-- Left column -->
       <div>
-        <h2 class="text-4xl font-bold mb-8 font-bad-script">Contact Information</h2>
-        <p class="mb-2"><strong>Address:</strong> 23 Moon Street, Orlando, Fl, 328123</p>
+        <h2 class="text-4xl font-bold mb-8 font-bad-script">
+          Contact Information
+        </h2>
+        <p class="mb-2">
+          <strong>Address:</strong> 23 Moon Street, Orlando, Fl, 328123
+        </p>
         <p class="mb-2"><strong>Phone:</strong> (407) 456-7890</p>
         <p class="mb-2"><strong>Email:</strong> info@moonlightcoffee.com</p>
-        <p class="mb-2"><strong>Hours of Operation:</strong> Mon-Fri: 8am - 10pm, Sat-Sun: 9am - 11pm</p>
+        <p class="mb-2">
+          <strong>Hours of Operation:</strong> Mon-Fri: 8am - 10pm, Sat-Sun: 9am
+          - 11pm
+        </p>
       </div>
       <!-- Right column -->
       <div class="flex flex-col items-center justify-center">
-        <router-link to="/menu" class="mb-4 border-2 border-white bg-transparent text-lg text-white hover:bg-white hover:text-black py-2 px-4 rounded font-bad-script font-bold">Show Menu</router-link>
-        <router-link to="/about" class="mb-4 border-2 border-white bg-transparent text-lg text-white hover:bg-white hover:text-black py-2 px-4 rounded font-bad-script font-bold">About us</router-link>
+        <router-link
+          to="/menu"
+          class="mb-4 border-2 border-white bg-transparent text-lg text-white hover:bg-white hover:text-black py-2 px-4 rounded font-bad-script font-bold"
+          >Show Menu</router-link
+        >
+        <router-link
+          to="/about"
+          class="mb-4 border-2 border-white bg-transparent text-lg text-white hover:bg-white hover:text-black py-2 px-4 rounded font-bad-script font-bold"
+          >About us</router-link
+        >
       </div>
     </div>
   </section>
 
- 
-  
-  
   <footer class="bg-amber-800 text-white p-4">
     <p class="text-center">
       Made with ❤️ by
